@@ -1,0 +1,51 @@
+---
+import DarkModeToggle from './DarkModeToggle.astro';
+---
+
+<nav id="main-navbar" class="sticky top-0 z-50 bg-white shadow-lg border-b border-gray-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center py-4">
+      <div class="flex items-center space-x-4">
+        <div class="w-24 h-16 bg-asee-blue rounded-lg flex items-center justify-center mx-auto">
+          <img class="w-6 h-6 text-white" src="/assets/illustrations/asee_logo.svg" role="img" alt="ASEE Logo"/>
+          <span class="text-white inter-medium text-2xl -mt-1">asee</span>
+        </div>
+        <h1 class="text-3xl font-semibold text-gray-900">Deep Linking Guide</h1>
+      </div>
+      <div class="flex items-center space-x-6">
+        <div class="hidden md:flex space-x-6">
+          <a href="#overview" class="nav-link text-gray-600 hover:text-asee-blue hover:scale-105 transition-all duration-200 transform">Overview</a>
+          <a href="#examples" class="nav-link text-gray-600 hover:text-asee-blue hover:scale-105 transition-all duration-200 transform">Examples</a>
+          <a href="#ios" class="nav-link text-gray-600 hover:text-asee-blue hover:scale-105 transition-all duration-200 transform">iOS</a>
+          <a href="#android" class="nav-link text-gray-600 hover:text-asee-blue hover:scale-105 transition-all duration-200 transform">Android</a>
+          <a href="#hosting" class="nav-link text-gray-600 hover:text-asee-blue hover:scale-105 transition-all duration-200 transform">Hosting</a>
+          <a href="#fallback" class="nav-link text-gray-600 hover:text-asee-blue hover:scale-105 transition-all duration-200 transform">Fallback</a>
+          <a href="#download" class="nav-link text-gray-600 hover:text-asee-blue hover:scale-105 transition-all duration-200 transform">Download</a>
+          <a href="#best-practices" class="nav-link text-gray-600 hover:text-asee-blue hover:scale-105 transition-all duration-200 transform">Best Practices</a>
+        </div>
+        <div class="flex items-center space-x-3">
+          <DarkModeToggle />
+        </div>
+        <div class="md:hidden">
+          <button id="mobileMenuBtn" class="text-gray-600 hover:text-asee-blue hover:scale-105 transition-all duration-200 transform p-2">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="mobileMenu" class="md:hidden hidden pb-4">
+      <div class="flex flex-col space-y-2">
+        <a href="#overview" class="nav-link text-gray-600 hover:text-asee-blue hover:scale-105 transition-all duration-200 transform px-2 py-1">Overview</a>
+        <a href="#examples" class="nav-link text-gray-600 hover:text-asee-blue hover:scale-105 transition-all duration-200 transform px-2 py-1">Examples</a>
+        <a href="#ios" class="nav-link text-gray-600 hover:text-asee-blue hover:scale-105 transition-all duration-200 transform px-2 py-1">iOS</a>
+        <a href="#android" class="nav-link text-gray-600 hover:text-asee-blue hover:scale-105 transition-all duration-200 transform px-2 py-1">Android</a>
+        <a href="#hosting" class="nav-link text-gray-600 hover:text-asee-blue hover:scale-105 transition-all duration-200 transform px-2 py-1">Hosting</a>
+        <a href="#fallback" class="nav-link text-gray-600 hover:text-asee-blue hover:scale-105 transition-all duration-200 transform px-2 py-1">Fallback</a>
+        <a href="#download" class="nav-link text-gray-600 hover:text-asee-blue hover:scale-105 transition-all duration-200 transform px-2 py-1">Download</a>
+        <a href="#best-practices" class="nav-link text-gray-600 hover:text-asee-blue hover:scale-105 transition-all duration-200 transform px-2 py-1">Best Practices</a>
+      </div>
+    </div>
+  </div>
+</nav>

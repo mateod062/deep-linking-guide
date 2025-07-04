@@ -1,0 +1,71 @@
+<!-- Android Manifest.xml Deep Link Configuration -->
+<!-- Add these intent filters to your main Activity -->
+
+<activity android:name=".MainActivity"
+    android:exported="true"
+    android:launchMode="singleTop">
+    
+    <!-- Standard App Launch -->
+    <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+    </intent-filter>
+    
+    <!-- Deep Link: Products -->
+    <intent-filter android:autoVerify="true">
+        <action android:name="android.intent.action.VIEW" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <category android:name="android.intent.category.BROWSABLE" />
+        <data android:scheme="https"
+              android:host="yourdomain.com"
+              android:pathPrefix="/products" />
+    </intent-filter>
+    
+    <!-- Deep Link: Profile -->
+    <intent-filter android:autoVerify="true">
+        <action android:name="android.intent.action.VIEW" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <category android:name="android.intent.category.BROWSABLE" />
+        <data android:scheme="https"
+              android:host="yourdomain.com"
+              android:pathPrefix="/profile" />
+    </intent-filter>
+    
+    <!-- Deep Link: Orders -->
+    <intent-filter android:autoVerify="true">
+        <action android:name="android.intent.action.VIEW" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <category android:name="android.intent.category.BROWSABLE" />
+        <data android:scheme="https"
+              android:host="yourdomain.com"
+              android:pathPrefix="/orders" />
+    </intent-filter>
+    
+    <!-- Deep Link: Categories -->
+    <intent-filter android:autoVerify="true">
+        <action android:name="android.intent.action.VIEW" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <category android:name="android.intent.category.BROWSABLE" />
+        <data android:scheme="https"
+              android:host="yourdomain.com"
+              android:pathPrefix="/categories" />
+    </intent-filter>
+    
+    <!-- Custom URL Scheme (for development/testing) -->
+    <intent-filter>
+        <action android:name="android.intent.action.VIEW" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <category android:name="android.intent.category.BROWSABLE" />
+        <data android:scheme="myapp" />
+    </intent-filter>
+    
+</activity>
+
+<!-- 
+IMPORTANT NOTES:
+1. Replace "yourdomain.com" with your actual domain
+2. Replace "myapp" with your app's custom scheme
+3. Set android:autoVerify="true" for App Links verification
+4. Each intent filter should handle one specific path pattern
+5. Host assetlinks.json at https://yourdomain.com/.well-known/assetlinks.json
+-->

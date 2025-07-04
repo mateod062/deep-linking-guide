@@ -1,0 +1,52 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Overview from '../components/Overview.astro';
+import Examples from '../components/Examples.astro';
+import IOSSection from '../components/IOSSection.astro';
+import AndroidSection from '../components/AndroidSection.astro';
+import HostingSection from '../components/HostingSection.astro';
+import FallbackSection from '../components/FallbackSection.astro';
+import DownloadSection from '../components/DownloadSection.astro';
+import BestPractices from '../components/BestPractices.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout 
+  title="ASEE Deep Linking Guide" 
+  description="Complete guide to implementing deep links for iOS and Android apps. Learn Universal Links, App Links, and best practices."
+>
+  <Header />
+  <Hero />
+  
+  <main class="max-w-4xl mx-auto px-4 py-12">
+    <Overview />
+    
+    <div class="section-divider my-12"></div>
+    
+    <Examples />
+    
+    <div class="section-divider my-12"></div>
+    
+    <IOSSection />
+    
+    <div class="section-divider my-12"></div>
+    
+    <AndroidSection />
+    
+    <div class="section-divider my-12"></div>
+    
+    <HostingSection />
+    
+    <div class="section-divider my-12"></div>
+    
+    <FallbackSection />
+    
+    <DownloadSection />
+    
+    <BestPractices />
+  </main>
+  
+  <Footer />
+</Layout>

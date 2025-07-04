@@ -1,0 +1,54 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+
+import '../styles/global.css';
+import darkModeScript from '../scripts/darkMode.js?raw';
+import navigationScript from '../scripts/navigation.js?raw';
+import codeBlocksScript from '../scripts/codeBlocks.js?raw';
+import downloadsScript from '../scripts/downloads.js?raw';
+
+import 'aos/dist/aos.css';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+
+    <link href="prism-material-dark.css" rel="stylesheet">
+    
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <script is:inline set:html={darkModeScript}></script>
+    <script is:inline set:html={navigationScript}></script>
+    <script is:inline set:html={codeBlocksScript}></script>
+    <script is:inline set:html={downloadsScript}></script>
+
+    <script>
+      import AOS from 'aos';
+      document.addEventListener('DOMContentLoaded', function() {
+          AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+          });
+      });
+    </script>
+  </head>
+  <body class="font-sans leading-relaxed">
+    <slot />
+  </body>
+</html>

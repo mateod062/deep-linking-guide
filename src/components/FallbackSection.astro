@@ -1,0 +1,313 @@
+---
+import { Prism } from '@astrojs/prism';
+---
+
+<section id="fallback" class="mb-16" data-aos="fade-up">
+  <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8">
+    <div class="flex items-center mb-6">
+      <div class="w-12 h-12 bg-asee-blue rounded-lg flex items-center justify-center mr-4">
+        <span class="material-symbols-outlined text-white">
+          language
+        </span>
+      </div>
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white">Web Fallback Handling</h2>
+    </div>
+
+    <div class="prose prose-lg max-w-none">
+      <p class="text-gray-700 dark:text-gray-300 mb-6">
+        Not all users will have your app installed. Providing a seamless web fallback ensures a great experience for everyone, whether they have your app or not.
+      </p>
+
+      <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Fallback Strategies</h3>
+      
+      <div class="grid md:grid-cols-3 gap-6 mb-8">
+        <div class="text-center p-6 bg-gray-50 rounded-lg">
+          <div class="w-12 h-12 bg-asee-light rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-asee-dark font-bold">1</span>
+          </div>
+          <h4 class="font-semibold mb-2">App Installed</h4>
+          <p class="text-sm text-gray-600">Deep link opens directly in app</p>
+        </div>
+        
+        <div class="text-center p-6 bg-gray-50 rounded-lg">
+          <div class="w-12 h-12 bg-asee-blue rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-white font-bold">2</span>
+          </div>
+          <h4 class="font-semibold mb-2">App Not Installed</h4>
+          <p class="text-sm text-gray-600">Fallback to web version</p>
+        </div>
+        
+        <div class="text-center p-6 bg-gray-50 rounded-lg">
+          <div class="w-12 h-12 bg-asee-dark rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-light font-bold">3</span>
+          </div>
+          <h4 class="font-semibold mb-2">Smart Banner</h4>
+          <p class="text-sm text-gray-600">Show app install prompt</p>
+        </div>
+      </div>
+
+      <h3 class="text-xl font-semibold text-gray-900 mb-4">Example Fallback Page</h3>
+      <p class="text-gray-700 mb-4">Create a fallback HTML page that provides app download links:</p>
+      <div class="code-block">
+        <Prism lang="html" code={`<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Our App</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            text-align: center;
+            background: #f8f9fa;
+        }
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 16px;
+            margin-bottom: 20px;
+            background: #007AFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 32px;
+            margin: 0 auto 20px;
+        }
+        .download-buttons {
+            display: flex;         
+            justify-content: center;   
+            align-items: center;     
+            gap: 10px;                
+            flex-wrap: nowrap;  
+        }
+        .download-btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #007AFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: opacity 0.2s;
+        }
+        .download-btn:hover {
+            opacity: 0.8;
+        }
+        .download-btn.android {
+            background: #34A853;
+        }
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="app-icon">📱</div>
+        <h1>Get Our App</h1>
+        <p>For the best experience, download our mobile app:</p>
+        
+        <div class="download-buttons">
+            <a href="https://apps.apple.com/app/idXXXXXXXX" aria-label="Download on the App Store" class="hover:scale-105 transition-all duration-200 transform">
+                <img src="https://www.svgrepo.com/show/303128/download-on-the-app-store-apple-logo.svg"
+                    alt="Download on the App Store" width="180" />
+            </a>
+
+            <a href="https://play.google.com/store/apps/details?id=com.example.myapp" aria-label="Get it on Google Play" class="hover:scale-105 transition-all duration-200 transform">
+                <img src="https://www.svgrepo.com/show/303139/google-play-badge-logo.svg"
+                    alt="Get it on Google Play" width="180" />
+            </a>
+        </div>
+
+        <p><small>Or <a href="/web-version" class="hover:text-asee-blue hover:scale-105 transition-all duration-200 transform">continue in browser</a></small></p>
+    </div>
+</body>
+</html>`} />
+      </div>
+      <div class="bg-asee-light border border-asee-blue rounded-lg p-6 mb-6 mt-6">
+        <h3 class="flex items-center text-lg font-semibold text-asee-dark mb-3">
+          <span class="material-symbols-outlined mr-2 text-asee-blue">download</span>
+          Fallback HTML Template
+        </h3>
+        <button onclick="downloadFallbackHTML()" 
+            class="bg-asee-blue text-white px-6 py-2 rounded font-semibold hover:bg-blue-700 hover:scale-105 transition-all duration-200 transform">
+            Download
+        </button>
+      </div>
+      <div class="bg-asee-light border-l-4 border-asee-blue p-6 my-8">
+        <h3 class="flex items-center text-lg font-semibold text-asee-dark mb-2">
+          <span class="material-symbols-outlined mr-2">
+            lightbulb_2
+          </span>
+          Advanced Fallback Techniques
+        </h3>
+        <ul class="space-y-4 text-asee-dark">
+          <li class="flex items-start">
+            <div class="w-2 h-2 bg-asee-dark rounded-full mt-2 mr-3 flex-shrink-0"></div>
+            Try to open app, fallback to a web page after timeout
+          </li>
+          <li class="flex items-start">
+            <div class="w-2 h-2 bg-asee-dark rounded-full mt-2 mr-3 flex-shrink-0"></div>
+            Show appropriate store link based on device OS
+          </li>
+          <li class="flex items-start">
+            <div class="w-2 h-2 bg-asee-dark rounded-full mt-2 mr-3 flex-shrink-0"></div>
+            Remember user preference
+          </li>
+          <li class="flex items-start">
+            <div class="w-2 h-2 bg-asee-dark rounded-full mt-2 mr-3 flex-shrink-0"></div>
+            Use native iOS/Android smart banners for seamless app promotion
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mb-16" data-aos="fade-up">
+  <div class="bg-white backdrop-blur-sm rounded-xl p-8 shadow-lg">
+    <h3 class="text-2xl font-bold text-gray-900  mb-6 flex items-center">
+      Smart Banners Explained
+    </h3>
+    <div class="space-y-6">
+      <div class="bg-asee-light rounded-lg p-6 border border-asee-blue">
+        <ul class="space-y-3 text-asee-dark">
+          <li class="flex items-start">
+            <div class="w-2 h-2 bg-asee-dark rounded-full mt-2 mr-3 flex-shrink-0"></div>
+            Safari automatically detects if your app is available in the App Store and shows a native banner
+          </li>
+          <li class="flex items-start">
+            <div class="w-2 h-2 bg-asee-dark rounded-full mt-2 mr-3 flex-shrink-0"></div>
+            Chrome shows "Add to Home Screen" or app install prompts based on your web app manifest
+          </li>
+          <li class="flex items-start">
+            <div class="w-2 h-2 bg-asee-dark rounded-full mt-2 mr-3 flex-shrink-0"></div>
+            Styled by the browser to match the operating system's design language
+          </li>
+          <li class="flex items-start">
+            <div class="w-2 h-2 bg-asee-dark rounded-full mt-2 mr-3 flex-shrink-0"></div>
+            Only appears when the app isn't already installed on the device
+          </li>
+          <li class="flex items-start">
+            <div class="w-2 h-2 bg-asee-dark rounded-full mt-2 mr-3 flex-shrink-0"></div>
+            Users can dismiss the banner, and it won't show again for that session
+          </li>
+        </ul>
+      </div>
+      
+      <div class="space-y-6">
+        <div class="bg-gray-50 rounded-lg p-6">
+          <h4 class="font-semibold text-gray-900 mb-4">iOS Smart App Banner Implementation</h4>
+          <div class="space-y-3">
+            <div class="code-block">
+              <Prism lang="html" code={`<meta name="apple-itunes-app" content="app-id=123456789, app-argument=myurl://path">`} />
+            </div>
+            <div class="text-sm text-gray-600">
+              <strong>Parameters:</strong>
+              <ul class="mt-2 space-y-1 ml-4">
+                <li class="flex items-start">
+                  <div class="w-2 h-2 bg-gray-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                  <code class="bg-gray-100 px-1 rounded">app-id</code>: Your App Store ID (found in App Store Connect)
+                </li>
+                <li class="flex items-start">
+                  <div class="w-2 h-2 bg-gray-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                  <code class="bg-gray-100 px-1 rounded">app-argument</code>: Deep link URL to open specific content
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="bg-gray-50 rounded-lg p-6">
+          <h4 class="font-semibold text-gray-900 mb-4">Android Web App Manifest</h4>
+          <div class="space-y-4">
+            <div>
+              <p class="text-sm text-gray-600 mb-3">Add the manifest link to your HTML head:</p>
+              <div class="code-block">
+                <Prism lang="html" code={`<link rel="manifest" href="/manifest.json">`} />
+              </div>
+            </div>
+            
+            <div>
+              <p class="text-sm text-gray-600 mb-3">Example manifest.json file:</p>
+              <div class="code-block">
+                <Prism lang="json" code={`{
+  "name": "My App",
+  "short_name": "MyApp",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#007AFF",
+  "background_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "play",
+      "url": "https://play.google.com/store/apps/details?id=com.example.myapp",
+      "id": "com.example.myapp"
+    }
+  ],
+  "prefer_related_applications": true
+}`} />
+              </div>
+            </div>
+            
+            <div class="text-sm text-gray-600">
+              <strong>Key requirements for smart banners:</strong>
+              <ul class="mt-2 space-y-1 ml-4">
+                <li class="flex items-start">
+                  <div class="w-2 h-2 bg-gray-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                  <code class="bg-gray-100 px-1 rounded">related_applications</code> with Play Store URL and package ID
+                </li>
+                <li class="flex items-start">
+                  <div class="w-2 h-2 bg-gray-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                  <code class="bg-gray-100 px-1 rounded">prefer_related_applications: true</code> to prioritize native app
+                </li>
+                <li class="flex items-start">
+                  <div class="w-2 h-2 bg-gray-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                  Valid app icons (192px and 512px recommended)
+                </li>
+                <li class="flex items-start">
+                  <div class="w-2 h-2 bg-gray-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                  App name and theme colors for consistent branding
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bg-asee-light border border-asee-blue rounded-lg p-4">
+        <h5 class="flex items-center font-semibold text-asee-dark">
+          <span class="material-symbols-outlined text-asee-blue mr-2">
+            warning
+          </span>
+          Browser Limitations
+        </h5>
+        <p class="text-sm text-asee-dark mt-1">
+          Smart banners only work in Safari (iOS) and Chrome (Android). Other browsers like Firefox, 
+          Opera, or in-app browsers require custom fallback solutions using JavaScript detection and 
+          manual store links.
+        </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

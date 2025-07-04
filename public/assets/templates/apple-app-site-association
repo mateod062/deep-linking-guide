@@ -1,0 +1,17 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "TEAMID.BUNDLEID",
+        "paths": [
+          "/products/*",
+          "/help",
+          "/profile/*",
+          "/orders/*",
+          "/categories/*"
+        ]
+      }
+    ]
+  }
+}
