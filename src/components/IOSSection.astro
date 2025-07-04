@@ -30,34 +30,40 @@ import { Prism } from '@astrojs/prism';
             <ul class="space-y-2 text-blue-800 text-sm">
               <li class="flex items-start">
                 <div class="w-2 h-2 bg-asee-blue rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                Use explicit App ID (e.g., <code class="ms-1">com.example.myapp</code>)
+                <div class="min-w-0">
+                  Use explicit App ID (e.g., <code class="bg-blue-100 px-2 py-1 rounded text-xs break-all">com.example.myapp</code>)
+                </div>
               </li>
               <li class="flex items-start">
                 <div class="w-2 h-2 bg-asee-blue rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                Don't use wildcard App IDs (e.g., <code class="ms-1">com.example.*</code>) for Associated Domains
+                <div class="min-w-0">
+                  Don't use wildcard App IDs (e.g., <code class="bg-blue-100 px-2 py-1 rounded text-xs break-all">com.example.*</code>) for Associated Domains
+                </div>
               </li>
               <li class="flex items-start">
                 <div class="w-2 h-2 bg-asee-blue rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                Associated Domains must be enabled in the App ID configuration
+                <div class="min-w-0">
+                  Associated Domains must be enabled in the App ID configuration
+                </div>
               </li>
             </ul>
           </div>
           
           <div class="space-y-3">
             <div class="flex items-start">
-              <span class="inline-flex items-center justify-center w-6 h-6 bg-blue-600 text-white text-xs font-bold rounded-full mr-3 mt-0.5">1</span>
+              <span class="inline-flex items-center justify-center w-6 h-6 bg-blue-600 text-white text-xs font-bold rounded-full mr-3 mt-0.5 flex-shrink-0">1</span>
               <p class="text-gray-700">Go to <a href="https://developer.apple.com/account/resources/identifiers/list" class="text-blue-600 underline hover:text-asee-blue hover:scale-105 transition-all duration-200 transform cursor-pointer">Apple Developer Portal → Certificates, Identifiers & Profiles → Identifiers</a></p>
             </div>
             <div class="flex items-start">
-              <span class="inline-flex items-center justify-center w-6 h-6 bg-blue-600 text-white text-xs font-bold rounded-full mr-3 mt-0.5">2</span>
+              <span class="inline-flex items-center justify-center w-6 h-6 bg-blue-600 text-white text-xs font-bold rounded-full mr-3 mt-0.5 flex-shrink-0">2</span>
               <p class="text-gray-700">Select your App ID or create a new one with an explicit Bundle ID (no wildcards)</p>
             </div>
             <div class="flex items-start">
-              <span class="inline-flex items-center justify-center w-6 h-6 bg-blue-600 text-white text-xs font-bold rounded-full mr-3 mt-0.5">3</span>
+              <span class="inline-flex items-center justify-center w-6 h-6 bg-blue-600 text-white text-xs font-bold rounded-full mr-3 mt-0.5 flex-shrink-0">3</span>
               <p class="text-gray-700">In the Capabilities section, enable <strong>Associated Domains</strong></p>
             </div>
             <div class="flex items-start">
-              <span class="inline-flex items-center justify-center w-6 h-6 bg-blue-600 text-white text-xs font-bold rounded-full mr-3 mt-0.5">4</span>
+              <span class="inline-flex items-center justify-center w-6 h-6 bg-blue-600 text-white text-xs font-bold rounded-full mr-3 mt-0.5 flex-shrink-0">4</span>
               <p class="text-gray-700">Save the configuration and regenerate your provisioning profiles</p>
             </div>
           </div>
@@ -96,7 +102,10 @@ import { Prism } from '@astrojs/prism';
           <p class="text-gray-700">
             In Xcode, go to your app target → Signing & Capabilities → Add Capability → Associated Domains.
           </p>
-          <p class="text-gray-700 mb-4">Add <code class="bg-gray-200 px-2 py-1 rounded">applinks:yourdomain.com</code></p>
+          <div class="mt-3 mb-4">
+            <span class="block text-gray-700 mb-2">Add:</span>
+            <code class="bg-gray-200 px-2 py-1 rounded text-sm break-all">applinks:yourdomain.com</code>
+          </div>
           
           <div class="space-y-6 mb-6">
             <div class="text-center">
@@ -133,7 +142,9 @@ import { Prism } from '@astrojs/prism';
 
         <div class="bg-gray-50 rounded-lg p-6">
           <h4 class="font-semibold text-gray-900 mb-3">3. Create AASA File</h4>
-          <p class="text-gray-700 mb-3">Create an <code>apple-app-site-association</code> file (no extension) with your app details:</p>
+          <div class="mb-3">
+            <span class="block text-gray-700 mb-2">Create an <code class="bg-gray-200 px-2 py-1 rounded text-sm break-all">apple-app-site-association</code> file (no extension) with your app details:</span>
+          </div>
           <div class="code-block">
             <Prism lang="json" code={`{
   "applinks": {
@@ -197,19 +208,28 @@ private func handleUniversalLink(url: URL) {
         <ul class="space-y-2 text-asee-dark">
           <li class="flex items-start">
             <div class="w-2 h-2 bg-asee-blue rounded-full mt-2 mr-3 flex-shrink-0"></div>
-            AASA file must be served over HTTPS with no redirects
+            <div class="min-w-0">
+              AASA file must be served over HTTPS with no redirects
+            </div>
           </li>
           <li class="flex items-start">
             <div class="w-2 h-2 bg-asee-blue rounded-full mt-2 mr-3 flex-shrink-0"></div>
-            File size must be under 128 KB
+            <div class="min-w-0">
+              File size must be under 128 KB
+            </div>
           </li>
           <li class="flex items-start">
             <div class="w-2 h-2 bg-asee-blue rounded-full mt-2 mr-3 flex-shrink-0"></div>
-            Must contain <code>"apps": []</code> (empty array)
+            <div class="min-w-0">
+              Must contain <code class="bg-white px-2 py-1 rounded text-sm break-all border border-gray-200">"apps": []</code> (empty array)
+            </div>
           </li>
           <li class="flex items-start">
             <div class="w-2 h-2 bg-asee-blue rounded-full mt-2 mr-3 flex-shrink-0"></div>
-            Host at <code>/.well-known/</code> directory
+            <div class="min-w-0">
+              Host at:<br class="sm:hidden">
+              <code class="bg-white px-2 py-1 rounded text-sm break-all border border-gray-200">/.well-known/</code> directory
+            </div>
           </li>
         </ul>
       </div>

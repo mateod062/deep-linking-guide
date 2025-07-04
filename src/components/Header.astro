@@ -2,15 +2,15 @@
 import DarkModeToggle from './DarkModeToggle.astro';
 ---
 
-<nav id="main-navbar" class="sticky top-0 z-50 bg-white shadow-lg border-b border-gray-200">
+<nav id="main-navbar" class="fixed top-0 left-0 right-0 z-50 bg-white shadow-lg border-b border-gray-200">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center py-4">
-      <div class="flex items-center space-x-4">
-        <div class="w-24 h-16 bg-asee-blue rounded-lg flex items-center justify-center mx-auto">
-          <img class="w-6 h-6 text-white" src="/assets/illustrations/asee_logo.svg" role="img" alt="ASEE Logo"/>
-          <span class="text-white inter-medium text-2xl -mt-1">asee</span>
+      <div class="flex items-center space-x-2 sm:space-x-4">
+        <div class="w-20 h-12 sm:w-24 sm:h-16 bg-asee-blue rounded-lg flex items-center justify-center px-2 gap-1">
+          <img class="w-4 h-4 sm:w-6 sm:h-6 text-white" src="/assets/illustrations/asee_logo.svg" role="img" alt="ASEE Logo"/>
+          <span class="text-white inter-medium text-lg sm:text-2xl">asee</span>
         </div>
-        <h1 class="text-3xl font-semibold text-gray-900">Deep Linking Guide</h1>
+        <h1 class="text-xl sm:text-2xl lg:text-3xl font-semibold text-gray-900">Deep Linking Guide</h1>
       </div>
       <div class="flex items-center space-x-6">
         <div class="hidden md:flex space-x-6">
