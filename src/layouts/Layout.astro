@@ -16,7 +16,7 @@ import 'aos/dist/aos.css';
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="overflow-x-hidden">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
@@ -48,7 +48,7 @@ import 'aos/dist/aos.css';
       });
     </script>
   </head>
-  <body class="font-sans leading-relaxed">
+  <body class="font-sans leading-relaxed overflow-x-hidden" style="touch-action: pan-y; overscroll-behavior-x: none;">
     <slot />
   </body>
 </html>

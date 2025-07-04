@@ -207,18 +207,29 @@ import { Prism } from '@astrojs/prism';
           <h4 class="font-semibold text-gray-900 mb-4">iOS Smart App Banner Implementation</h4>
           <div class="space-y-3">
             <div class="code-block">
-              <Prism lang="html" code={`<meta name="apple-itunes-app" content="app-id=123456789, app-argument=myurl://path">`} />
+              <Prism lang="html" code={`
+<meta
+ name="apple-itunes-app" 
+ content="app-id=123456789, app-argument=myurl://path"
+>
+`} />
             </div>
             <div class="text-sm text-gray-600">
               <strong>Parameters:</strong>
               <ul class="mt-2 space-y-1 ml-4">
                 <li class="flex items-start">
                   <div class="w-2 h-2 bg-gray-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                  <code class="bg-gray-100 px-1 rounded">app-id</code>: Your App Store ID (found in App Store Connect)
+                  <div class="min-w-0">
+                    <code class="bg-white px-1 rounded break-all border border-gray-300">app-id</code><br class="sm:hidden">
+                    <span class="sm:ml-1"> Your App Store ID (found in App Store Connect)</span>
+                  </div>
                 </li>
                 <li class="flex items-start">
                   <div class="w-2 h-2 bg-gray-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                  <code class="bg-gray-100 px-1 rounded">app-argument</code>: Deep link URL to open specific content
+                  <div class="min-w-0">
+                    <code class="bg-white px-1 rounded break-all border border-gray-300">app-argument</code><br class="sm:hidden">
+                    <span class="sm:ml-1"> Deep link URL to open specific content</span>
+                  </div>
                 </li>
               </ul>
             </div>
@@ -231,7 +242,12 @@ import { Prism } from '@astrojs/prism';
             <div>
               <p class="text-sm text-gray-600 mb-3">Add the manifest link to your HTML head:</p>
               <div class="code-block">
-                <Prism lang="html" code={`<link rel="manifest" href="/manifest.json">`} />
+                <Prism lang="html" code={`
+<link 
+ rel="manifest" 
+ href="/manifest.json"
+>
+`} />
               </div>
             </div>
             
@@ -274,19 +290,29 @@ import { Prism } from '@astrojs/prism';
               <ul class="mt-2 space-y-1 ml-4">
                 <li class="flex items-start">
                   <div class="w-2 h-2 bg-gray-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                  <code class="bg-gray-100 px-1 rounded">related_applications</code> with Play Store URL and package ID
+                  <div class="min-w-0">
+                    <code class="bg-white px-1 rounded break-all border border-gray-300">related_applications</code><br class="sm:hidden">
+                    <span class="sm:ml-1"> with Play Store URL and package ID</span>
+                  </div>
                 </li>
                 <li class="flex items-start">
                   <div class="w-2 h-2 bg-gray-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                  <code class="bg-gray-100 px-1 rounded">prefer_related_applications: true</code> to prioritize native app
+                  <div class="min-w-0">
+                    <code class="bg-white px-1 rounded break-all border border-gray-300">prefer_related_applications: true</code><br class="sm:hidden">
+                    <span class="sm:ml-1"> to prioritize native app</span>
+                  </div>
                 </li>
                 <li class="flex items-start">
                   <div class="w-2 h-2 bg-gray-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                  Valid app icons (192px and 512px recommended)
+                  <div class="min-w-0">
+                    Valid app icons (192px and 512px recommended)
+                  </div>
                 </li>
                 <li class="flex items-start">
                   <div class="w-2 h-2 bg-gray-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                  App name and theme colors for consistent branding
+                  <div class="min-w-0">
+                    App name and theme colors for consistent branding
+                  </div>
                 </li>
               </ul>
             </div>
