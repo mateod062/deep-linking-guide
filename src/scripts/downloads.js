@@ -28,7 +28,7 @@ function showDownloadSuccess(filename) {
 
 function downloadAASA() {
   const content = '{\n  "applinks": {\n    "apps": [],\n    "details": [\n      {\n        "appID": "TEAMID.BUNDLEID",\n        "paths": [\n          "/products/*",\n          "/help",\n          "/profile/*",\n          "/orders/*"\n        ]\n      }\n    ]\n  }\n}';
-  downloadFile(content, 'apple-app-site-association', 'application/json');
+  downloadFile(content, 'apple-app-site-association');
 }
 
 function downloadAssetLinks() {
